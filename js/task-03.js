@@ -13,8 +13,15 @@ const images = [
   },
 ];
 
-const imgEl = document.querySelector('.images');
-const img = [...images];
-for (let el of images) document.querySelector('.gallery').insertAdjacentHTML('beforeEnd', `<li><img src="${el.url}" alt="${el.alt}" class ='img-el' width = '400px' height = '270px'></li>`);
+const galleryEl = document.querySelector('.gallery');
+console.log(galleryEl);
+
+const listGallery = el => {
+  return `<li><img src="${el.url}" alt="${el.alt}" class ='img-el' width = '400px' height = '270px'></li>`;
+}
+
+const markup = images.map(listGallery).join(``);
+console.log(markup);
+galleryEl.insertAdjacentHTML('beforeEnd', markup);
 
 
